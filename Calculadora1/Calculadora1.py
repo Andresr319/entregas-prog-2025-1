@@ -1,38 +1,52 @@
 #!/usr/bin/env python3
 
 """
-Título de práctica: breve descripción
+Título de práctica: Calculadora básica en consola
 
 Descripción extendida del programa
+Este script permite realizar operaciones aritméticas simples
+(suma, resta, multiplicación y división)
 
-Autor: ElAutor <andres>
-Fecha: 2025-03-10
-
+Autor: Andres Santiago Rachen Papamija
+Fecha: 2025-04-04
 """
 
+
 def es_numero(valor):
-    """Verifica si el valor ingresado es un número válido (permite decimales)."""
-    return valor.replace('.', '', 1).isdigit() or (valor.startswith('-') and valor[1:].replace('.', '', 1).isdigit())
+    """
+    Verifica si el valor ingresado es un número válido
+    (permite decimales).
+    """
+    return (
+        valor.replace('.', '', 1).isdigit()
+        or (
+            valor.startswith('-')
+            and valor[1:].replace('.', '', 1).isdigit()
+        )
+    )
+
 
 def calculator():
     """Calculadora básica con operaciones aritméticas sin try-except."""
-    
+
     a = input("> Ingrese el operando A:\n< ")
     while not es_numero(a):
-        print("> Error: Entrada inválida. Asegúrese de ingresar un número válido.")
+        print("> Error: Entrada inválida. "
+              "Asegúrese de ingresar un número válido.")
         a = input("< ")
 
     b = input("> Ingrese el operando B:\n< ")
     while not es_numero(b):
-        print("> Error: Entrada inválida. Asegúrese de ingresar un número válido.")
+        print("> Error: Entrada inválida. "
+              "Asegúrese de ingresar un número válido.")
         b = input("< ")
 
     a, b = float(a), float(b)
 
     print("> ¿Qué operación desea realizar?")
-    print("> Escriba 1 para suma, ")
-    print(">         2 para resta, ")
-    print(">         3 para multiplicación ")
+    print("> Escriba 1 para suma,")
+    print(">         2 para resta,")
+    print(">         3 para multiplicación")
     print(">         4 para división.")
 
     opcion = input("< ")
@@ -57,10 +71,13 @@ def calculator():
 
     print(f"> El resultado es: {resultado}")
 
+
 def run():
-    """Punto de entrada del script"""
+    """Punto de entrada del script."""
     calculator()
+
 
 # **** Conserve este condicional para ejecutar el programa directamente
 if __name__ == "__main__":
     run()
+
